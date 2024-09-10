@@ -5,7 +5,6 @@ function pesquisar() {
 
     let campoPesquisa = document.getElementById("campo-pesquisa").value;
 
-    
     campoPesquisa = campoPesquisa.toLowerCase();
     
     // Inicializa uma string vazia para armazenar os resultados da pesquisa
