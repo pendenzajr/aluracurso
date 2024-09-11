@@ -1,5 +1,5 @@
 /* Importa a fonte Chakra Petch do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Playwrite+CU:wght@100..400&display=swap");
 
 /* style.css */
 header {
@@ -9,15 +9,21 @@ header {
   img {
     width: 400px; /* Ajuste o tamanho conforme necessário */
     height: auto; /* Mantém a proporção da imagem */
-    margin-top: 50px; /* Cria um espaço entre o logo e o topo da pagina */
+    margin-top: 200px; /* Cria um espaço entre o logo e o topo da pagina */
     margin-bottom: -120px; /* Cria um espaço entre o logo e o título */
   }
 
 /* Estiliza o corpo da página */
 body {
     /* position: relative; */
-    font-family: "Chakra Petch", sans-serif; /* Define a fonte padrão */
-    background-color: #639; /* Cor de fundo da página */
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal; /* Define a fonte padrão */
+    /*background-color: #639; /* Cor de fundo da página */
+    background-image: url('bckgrd.jpg');
+    background-size: cover;
+    background-position: center center;
+    /* background-attachment: scroll; */
     display: flex; /* Usa Flexbox para layout */
     flex-direction: column; /* Alinha os itens na vertical */
     align-items: center; /* Centraliza os itens horizontalmente */
@@ -30,7 +36,7 @@ body {
 /* Estiliza os títulos h1 */
 h1 {
     font-size: 2.5rem; /* Tamanho da fonte */
-    color: #222831; /* Cor do texto */
+    color: #000000; /* Cor do texto */
     text-align: center; /* Alinha o texto ao centro */
     letter-spacing: 0.4rem; /* Espaçamento entre letras */
 }
