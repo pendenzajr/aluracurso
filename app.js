@@ -1,54 +1,38 @@
 function pesquisar() {
-
-    // Obtém a seção HTML onde os resultados da pesquisa serão exibidos
-    let section = document.getElementById("resultados-pesquisa");
-
-    let campoPesquisa = document.getElementById("campo-pesquisa").value;
-
-    campoPesquisa = campoPesquisa.toLowerCase();
-    
-    // Inicializa uma string vazia para armazenar os resultados da pesquisa
+    const section = document.getElementById("resultados-pesquisa");
+    const campoPesquisa = document.getElementById("campo-pesquisa").value.toLowerCase();
+    const regex = new RegExp(campoPesquisa, "i"); // Expressão regular para busca case-insensitive
+  
     let resultados = "";
-    let nome = "";
-    let olfativa = "";
-    let tags = "";
-
-    // se campo de pesquisa for vazio, nao retorna nada
-    if(campoPesquisa == "") {
-        section.innerHTML = "<h2>Digite alguma coisa no campo de busca</h2>"
-        return             
+  
+    if (!campoPesquisa) {
+      section.innerHTML = "<h2>Digite alguma coisa para pesquisar.</h2>";
+      return;
     }
- 
-    // Itera sobre cada perfume nos dados
-    for (let parfum of dados) {    
-        nome = parfum.nome.toLowerCase();
-        olfativa = parfum.olfativa.toLowerCase();
-        tags= parfum.tags.toLowerCase();   
-        // se titulo icludes campoPesquisa 
-        if(nome.includes(campoPesquisa) || olfativa.includes(campoPesquisa) || tags.includes(campoPesquisa)) {
-
-        // Cria uma nova div para cada perfume e adiciona as informações relevantes
+  
+    for (const parfum of dados) {
+      const { nome, olfativa, tags, lancamento} = parfum;
+      if (nome.match(regex) || olfativa.match(regex) || tags.match(regex) || lancamento.match(regex)) {
         resultados += `
-        <div class="item-resultado">
-            <h2>
-                <p class="descricao-meta">${parfum.nome}</p>
-            </h2>
-            <p class="descricao-meta">${parfum.marca + " " + parfum.lancamento}</p>
-            <p class="descricao-meta">${parfum.tipo}</p>
-            <p class="descricao-meta">${parfum.olfativa}</p>
+          <div class="item-resultado">
+            <h2>${parfum.nome.replace(regex, `<mark>$&</mark>`)}</h2>
+            <p class="descricao-meta">${parfum.marca} - ${parfum.lancamento.replace(regex, `<mark>$&</mark>`)}</p>
+            <p class="descricao-meta">Família Olfativa: ${parfum.olfativa.replace(regex, `<mark>$&</mark>`)}</p>
             <p class="descricao-meta">
-                <a href="${parfum.link}" target="_blank" title="Saiba mais" class="botao">Loja online</a>
+              <a href="${parfum.link}" target="_blank">Saiba mais</a>
             </p>
-        </div>
-    `;
-        }
-        
+          </div>
+        `;
+      }
     }
-
-    if(!resultados) {
-        resultados = "<h2>Nada foi encontrado</h2>"
+  
+    section.innerHTML = resultados || "<h2>Nenhum perfume encontrado para '" + campoPesquisa + "'.</h2>";
+  }
+  
+  // Adicionando o event listener para a tecla Enter
+  const campoPesquisa = document.getElementById("campo-pesquisa");
+  campoPesquisa.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      pesquisar();
     }
-
-    // Atribui a string com os resultados ao conteúdo HTML da seção
-    section.innerHTML = resultados;
-}
+  });

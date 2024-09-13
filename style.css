@@ -78,6 +78,14 @@ section button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
 }
 
+.header-container {
+    text-align: center; /* Centraliza o conteúdo */
+  }
+  
+.logo {
+    max-width: 100%; /* Responsividade */
+    margin-bottom: -120px; /* Espaçamento entre a imagem e o título */
+  }
 
 .whatsapp-button {
     position: fixed;
@@ -109,6 +117,8 @@ section button:hover {
     margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
     padding: 1rem; /* Espaçamento interno */
     border-radius: 0.6rem; /* Borda arredondada */
+    font-family: "Arial", sans-serif;
+    font-style: normal;
 }
 
 /* Estiliza cada item de resultado */
@@ -151,12 +161,18 @@ footer {
     padding: 0; /* Espaçamento interno */
     width: 100%; /* Largura total da página */
     /* position: absolute; */
+    font-family: "Arial", sans-serif;
+    font-style: normal;
     font-size: 1rem; /* Tamanho da fonte */
     bottom: 0;
     flex: 0 0 auto; /* Garante que o footer tenha um tamanho mínimo */
     
 }
 
+mark {
+    background-color: rgb(216, 12, 165);
+    padding: 2px;
+  }
 
 @media (max-width: 768px) {
     h1 {
