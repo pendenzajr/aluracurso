@@ -109,6 +109,24 @@ section button:hover {
   }
 
 
+  #campo-pesquisa::placeholder {
+    animation: type 2s steps(40, end) forwards;
+    -webkit-animation: type 2s steps(40, end) forwards; /* Para navegadores mais antigos */
+  }
+  
+  #placeholder-text {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  
+  @keyframes type {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
 /* Estiliza a caixa de resultados da pesquisa */
 .resultados-pesquisa {
     width: 60rem; /* Largura máxima da caixa de resultados */
