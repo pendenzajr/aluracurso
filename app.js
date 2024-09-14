@@ -37,7 +37,7 @@ const placeholders = [
     "Pesquise seu BöRR: Midnight",
     "Pesquise pelo importado: 212",
     "Pesquise por nota: Lavanda",
-    "Pesquise por Genero: Masculino"
+    "Pesquise por genero: Masculino"
 ];
 
 const searchInput = document.getElementById("campo-pesquisa");
